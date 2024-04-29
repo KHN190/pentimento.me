@@ -4,16 +4,16 @@
 $black: #000000;
 $white: #ffffff;
 
-$classic-base-color: hsl(240deg, 16%, 19%);
-$classic-primary-color: hsl(240deg, 29%, 70%);
-$classic-secondary-color: hsl(255deg, 25%, 88%);
-$classic-highlight-color: hsl(240deg, 100%, 69%);
+$classic-base-color: #282c37;
+$classic-primary-color: #9baec8;
+$classic-secondary-color: #d9e1e8;
+$classic-highlight-color: #BDC796;
 
-$blurple-600: hsl(252deg, 59%, 51%); // Iris
-$blurple-500: hsl(240deg, 100%, 69%); // Brand purple
-$blurple-300: hsl(237deg, 92%, 75%); // Faded Blue
-$grey-600: hsl(240deg, 8%, 33%); // Trout
-$grey-100: hsl(240deg, 51%, 90%); // Topaz
+$blurple-600: #8E986A; // Iris
+$blurple-500: #BDC796; // Brand purple
+$blurple-300: #858afa; // Faded Blue
+$grey-600: #4e4c5a; // Trout
+$grey-100: #dadaf3; // Topaz
 
 // Differences
 $success-green: lighten(hsl(138deg, 32%, 35%), 8%);
