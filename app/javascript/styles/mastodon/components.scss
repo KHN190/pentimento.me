@@ -2238,7 +2238,7 @@ a.account__display-name {
   }
 
   .icon-star {
-    color: $gold-star;
+    color: $blurple-300;
   }
 
   > span {
@@ -2249,11 +2249,11 @@ a.account__display-name {
 }
 
 .icon-button.star-icon.active {
-  color: $gold-star;
+  color: $blurple-300;
 }
 
 .icon-button.bookmark-icon.active {
-  color: $red-bookmark;
+  color: $blurple-300;
 }
 
 .no-reduce-motion .icon-button.star-icon {
@@ -5756,16 +5756,16 @@ a.status-card {
       }
 
       &.star-icon.active {
-        color: $gold-star;
+        color: $blurple-300;
 
         &:hover,
         &:focus,
         &:active {
-          background: rgba($gold-star, 0.15);
+          background: rgba($blurple-300, 0.15);
         }
 
         &:focus {
-          background: rgba($gold-star, 0.3);
+          background: rgba($blurple-300, 0.3);
         }
       }
 
@@ -8260,24 +8260,24 @@ noscript {
 
     &--requires-review {
       .trends__item__name {
-        color: $gold-star;
+        color: $blurple-300;
 
         a {
-          color: $gold-star;
+          color: $blurple-300;
         }
       }
 
       .trends__item__current {
-        color: $gold-star;
+        color: $blurple-300;
       }
 
       .trends__item__sparkline {
         path:first-child {
-          fill: rgba($gold-star, 0.25) !important;
+          fill: rgba($blurple-300, 0.25) !important;
         }
 
         path:last-child {
-          stroke: lighten($gold-star, 6%) !important;
+          stroke: lighten($blurple-300, 6%) !important;
         }
       }
     }
