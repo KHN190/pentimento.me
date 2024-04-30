@@ -9165,6 +9165,10 @@ noscript {
     }
   }
 
+  ul > li > p {
+    display: inline;
+  }
+
   ul > li::before {
     content: '⬩';
   }
