@@ -9250,6 +9250,7 @@ noscript {
   }
 
   li {
+    list-style-type: none;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
@@ -9265,14 +9266,7 @@ noscript {
   }
 
   ul > li::before {
-    content: '';
-    position: absolute;
-    background-color: $darker-text-color;
-    border-radius: 50%;
-    width: 0.375em;
-    height: 0.375em;
-    top: 0.5em;
-    inset-inline-start: 0.25em;
+    content: '⬩';
   }
 
   ul > li,
