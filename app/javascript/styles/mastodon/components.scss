@@ -2380,7 +2380,7 @@ a.account__display-name {
   }
 
   .icon-star {
-    color: $gold-star;
+    color: $blurple-300;
   }
 
   > span {
@@ -8130,24 +8130,24 @@ noscript {
 
     &--requires-review {
       .trends__item__name {
-        color: $gold-star;
+        color: $blurple-300;
 
         a {
-          color: $gold-star;
+          color: $blurple-300;
         }
       }
 
       .trends__item__current {
-        color: $gold-star;
+        color: $blurple-300;
       }
 
       .trends__item__sparkline {
         path:first-child {
-          fill: rgba($gold-star, 0.25) !important;
+          fill: rgba($blurple-300, 0.25) !important;
         }
 
         path:last-child {
-          stroke: lighten($gold-star, 6%) !important;
+          stroke: lighten($blurple-300, 6%) !important;
         }
       }
     }

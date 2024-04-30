@@ -18,7 +18,7 @@ import ReplyAllIcon from '@/material-icons/400-24px/reply.svg?react';
 import StarIcon from '@/material-icons/400-24px/star-fill.svg?react';
 import StarBorderIcon from '@/material-icons/400-24px/star.svg?react';
 import VisibilityIcon from '@/material-icons/400-24px/visibility.svg?react';
-import RepeatActiveIcon from '@/material-icons/400-24px/repeat.svg?react'; // infinit loop
+import RepeatActiveIcon from '@/svg-icons/repeat_active.svg?react';
 import RepeatDisabledIcon from '@/material-icons/400-24px/visibility_off-fill.svg?react';
 import RepeatPrivateIcon from '@/material-icons/400-24px/visibility-fill.svg?react';
 import RepeatPrivateActiveIcon from '@/material-icons/400-24px/visibility.svg?react';
