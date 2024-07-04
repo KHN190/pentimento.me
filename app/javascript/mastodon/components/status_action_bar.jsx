@@ -22,6 +22,7 @@ import RepeatActiveIcon from '@/material-icons/400-24px/repeat.svg?react'; // in
 import RepeatDisabledIcon from '@/material-icons/400-24px/visibility_off-fill.svg?react';
 import RepeatPrivateIcon from '@/material-icons/400-24px/visibility-fill.svg?react';
 import RepeatPrivateActiveIcon from '@/material-icons/400-24px/visibility.svg?react';
+import { identityContextPropShape, withIdentity } from 'mastodon/identity_context';
 import { PERMISSION_MANAGE_USERS, PERMISSION_MANAGE_FEDERATION } from 'mastodon/permissions';
 import { WithRouterPropTypes } from 'mastodon/utils/react_router';
 
