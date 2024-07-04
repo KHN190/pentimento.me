@@ -67,12 +67,8 @@ const mapStateToProps = (state, { status }) => ({
 });
 
 class ActionBar extends PureComponent {
-
-  static contextTypes = {
-    identity: PropTypes.object,
-  };
-
   static propTypes = {
+    identity: identityContextPropShape,
     status: ImmutablePropTypes.map.isRequired,
     relationship: ImmutablePropTypes.record,
     onReply: PropTypes.func.isRequired,
@@ -198,7 +194,7 @@ class ActionBar extends PureComponent {
 
   render () {
     const { status, relationship, intl } = this.props;
-    const { signedIn, permissions } = this.context.identity;
+    const { signedIn, permissions } = this.props.identity;
 
     const publicStatus       = ['public', 'unlisted'].includes(status.get('visibility'));
     const pinnableStatus     = ['public', 'unlisted', 'private'].includes(status.get('visibility'));
@@ -326,4 +322,4 @@ class ActionBar extends PureComponent {
 
 }
 
-export default withRouter(connect(mapStateToProps)(injectIntl(ActionBar)));
+export default withRouter(connect(mapStateToProps)(withIdentity(injectIntl(ActionBar))));

@@ -285,6 +285,7 @@ de:
         update_custom_emoji_html: "%{name} bearbeitete das Emoji %{target}"
         update_domain_block_html: "%{name} aktualisierte die Domain-Sperre für %{target}"
         update_ip_block_html: "%{name} änderte die Regel für die IP-Adresse %{target}"
+        update_report_html: "%{name} überarbeitete die Meldung %{target}"
         update_status_html: "%{name} überarbeitete einen Beitrag von %{target}"
         update_user_role_html: "%{name} änderte die Rolle von %{target}"
       deleted_account: gelöschtes Konto
@@ -292,6 +293,7 @@ de:
       filter_by_action: Nach Aktion filtern
       filter_by_user: Nach Benutzer*in filtern
       title: Protokoll
+      unavailable_instance: "(Server nicht verfügbar)"
     announcements:
       destroyed_msg: Ankündigung erfolgreich gelöscht!
       edit:
@@ -751,6 +753,7 @@ de:
         desc_html: Dies beruht auf externen Skripten von hCaptcha, die ein Sicherheits- und Datenschutzproblem darstellen könnten. Darüber hinaus <strong>kann das den Registrierungsprozess für manche Menschen (insbesondere für Menschen mit Behinderung) erheblich erschweren</strong>. Aus diesen Gründen solltest du alternative Maßnahmen in Betracht ziehen, z. B. eine Registrierung basierend auf einer Einladung oder auf Genehmigungen.
         title: Neue Nutzer*innen müssen ein CAPTCHA lösen, um das Konto zu bestätigen
       content_retention:
+        danger_zone: Gefahrenzone
         preamble: Lege fest, wie lange Inhalte von Nutzer*innen auf deinem Mastodon-Server gespeichert bleiben.
         title: Cache & Archive
       default_noindex:
@@ -949,7 +952,7 @@ de:
       delete: Löschen
       edit_preset: Warnvorlage bearbeiten
       empty: Du hast noch keine Warnvorlagen hinzugefügt.
-      title: Warnvorlagen verwalten
+      title: Warnvorlagen
     webhooks:
       add_new: Endpunkt hinzufügen
       delete: Löschen

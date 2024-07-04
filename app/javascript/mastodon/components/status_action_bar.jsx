@@ -74,12 +74,8 @@ const mapStateToProps = (state, { status }) => ({
 });
 
 class StatusActionBar extends ImmutablePureComponent {
-
-  static contextTypes = {
-    identity: PropTypes.object,
-  };
-
   static propTypes = {
+    identity: identityContextPropShape,
     status: ImmutablePropTypes.map.isRequired,
     relationship: ImmutablePropTypes.record,
     onReply: PropTypes.func,
@@ -118,7 +114,7 @@ class StatusActionBar extends ImmutablePureComponent {
   ];
 
   handleReplyClick = () => {
-    const { signedIn } = this.context.identity;
+    const { signedIn } = this.props.identity;
 
     if (signedIn) {
       this.props.onReply(this.props.status, this.props.history);
@@ -136,7 +132,7 @@ class StatusActionBar extends ImmutablePureComponent {
   };
 
   handleFavouriteClick = () => {
-    const { signedIn } = this.context.identity;
+    const { signedIn } = this.props.identity;
 
     if (signedIn) {
       this.props.onFavourite(this.props.status);
@@ -146,7 +142,7 @@ class StatusActionBar extends ImmutablePureComponent {
   };
 
   handleReblogClick = e => {
-    const { signedIn } = this.context.identity;
+    const { signedIn } = this.props.identity;
 
     if (signedIn) {
       this.props.onReblog(this.props.status, e);
@@ -250,7 +246,7 @@ class StatusActionBar extends ImmutablePureComponent {
 
   render () {
     const { status, relationship, intl, withDismiss, withCounters, scrollKey } = this.props;
-    const { signedIn, permissions } = this.context.identity;
+    const { signedIn, permissions } = this.props.identity;
 
     const publicStatus       = ['public', 'unlisted'].includes(status.get('visibility'));
     const pinnableStatus     = ['public', 'unlisted', 'private'].includes(status.get('visibility'));
@@ -410,4 +406,4 @@ class StatusActionBar extends ImmutablePureComponent {
 
 }
 
-export default withRouter(connect(mapStateToProps)(injectIntl(StatusActionBar)));
+export default withRouter(withIdentity(connect(mapStateToProps)(injectIntl(StatusActionBar))));
