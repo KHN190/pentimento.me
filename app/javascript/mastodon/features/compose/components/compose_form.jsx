@@ -19,7 +19,7 @@ import EmojiPickerDropdown from '../containers/emoji_picker_dropdown_container';
 import PollButtonContainer from '../containers/poll_button_container';
 import PrivacyDropdownContainer from '../containers/privacy_dropdown_container';
 import SpoilerButtonContainer from '../containers/spoiler_button_container';
-import UploadButtonContainer from '../containers/upload_button_container';
+// import UploadButtonContainer from '../containers/upload_button_container';
 import WarningContainer from '../containers/warning_container';
 import { countableText } from '../util/counter';
 
