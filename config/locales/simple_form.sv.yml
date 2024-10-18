@@ -153,7 +153,6 @@ sv:
         url: Dit händelser kommer skickas
     labels:
       account:
-        attribution_domains_as_text: Tillåt endast specifika webbplatser
         discoverable: Presentera profil och inlägg med upptäcktsalgoritmer
         fields:
           name: Etikett
