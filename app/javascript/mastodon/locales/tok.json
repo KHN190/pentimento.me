@@ -406,6 +406,7 @@
   "notifications.filter.polls": "pana lon pana ni",
   "onboarding.follows.search": "o alasa",
   "onboarding.profile.display_name": "nimi tawa jan ante",
+  "onboarding.profile.lead": "sina ken pana e ni lon tenpo kama, lon lipu pi ante nasin. ona la, nasin ante mute li lon.",
   "onboarding.profile.note": "sona sina",
   "poll.closed": "ona li pini",
   "poll.total_people": "{count, plural, other {jan #}}",

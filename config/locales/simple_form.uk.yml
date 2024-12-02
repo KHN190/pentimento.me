@@ -157,6 +157,7 @@ uk:
         url: Куди надсилатимуться події
     labels:
       account:
+        attribution_domains_as_text: Сайти дозволяють вам вказувати ваше авторство
         discoverable: Функції профілю та дописів у алгоритмах виявлення
         fields:
           name: Мітка

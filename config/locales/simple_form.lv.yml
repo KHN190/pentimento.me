@@ -148,6 +148,7 @@ lv:
         url: Kur notikumi tiks nosūtīti
     labels:
       account:
+        attribution_domains_as_text: Tīmekļvietnes, kurām ir tiesības uzskaitīt Tevi
         discoverable: Funkcijas profils un ziņas atklāšanas algoritmos
         fields:
           name: Marķējums
