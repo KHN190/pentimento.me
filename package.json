@@ -22,6 +22,7 @@
     "lint:js": "eslint . --ext=.js,.jsx,.ts,.tsx --cache --report-unused-disable-directives",
     "lint:css": "stylelint \"**/*.{css,scss}\"",
     "lint": "yarn lint:js && yarn lint:css",
+    "lint-staged": "yarn dlx lint-staged",
     "postversion": "git push --tags",
     "postinstall": "test -d node_modules/husky && husky || echo \"husky is not installed\"",
     "start": "node ./streaming/index.js",
