@@ -9,11 +9,11 @@ export interface ApiPollOptionJSON {
 
 export interface ApiPollJSON {
   id: string;
-  expires_at: string;
+  expires_at: string | null;
   expired: boolean;
   multiple: boolean;
   votes_count: number;
-  voters_count: number;
+  voters_count: number | null;
 
   options: ApiPollOptionJSON[];
   emojis: ApiCustomEmojiJSON[];

@@ -32,6 +32,12 @@ es-MX:
           attributes:
             url:
               invalid: no es una dirección URL válida
+        collection:
+          attributes:
+            collection_items:
+              too_many: son demasiados, no se permiten más de %{count}
+            tag:
+              unusable: podría no utilizarse
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ es-MX:
           attributes:
             reblog:
               taken: de la publicación ya existe
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: es demasiado pronto, debe ser posterior al %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: está por debajo del límite de edad
             email:
               blocked: utiliza un proveedor de correo no autorizado
               unreachable: no parece existir

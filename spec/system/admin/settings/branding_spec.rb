@@ -3,9 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin::Settings::Branding' do
+  let(:admin_user) { Fabricate(:admin_user) }
+
+  before { sign_in(admin_user) }
+
   it 'Saves changes to branding settings' do
-    sign_in admin_user
     visit admin_settings_branding_path
+    expect(page)
+      .to have_title(I18n.t('admin.settings.branding.title'))
 
     fill_in short_description_field,
             with: 'new key value'
@@ -20,7 +25,7 @@ RSpec.describe 'Admin::Settings::Branding' do
       .to change(Setting, :site_short_description).to('new key value')
 
     expect(page)
-      .to have_content(success_message)
+      .to have_text(success_message)
   end
 
   def short_description_field

@@ -3,9 +3,9 @@ import { useCallback, useEffect, useRef } from 'react';
 
 import { defineMessages, useIntl } from 'react-intl';
 
-import { Helmet } from 'react-helmet';
-
 import { List as ImmutableList } from 'immutable';
+
+import { Helmet } from '@unhead/react/helmet';
 
 import PeopleIcon from '@/material-icons/400-24px/group.svg?react';
 import {
@@ -21,10 +21,9 @@ import { ColumnHeader } from 'mastodon/components/column_header';
 import { LoadMore } from 'mastodon/components/load_more';
 import { LoadingIndicator } from 'mastodon/components/loading_indicator';
 import { RadioButton } from 'mastodon/components/radio_button';
-import ScrollContainer from 'mastodon/containers/scroll_container';
+import { ScrollContainer } from 'mastodon/containers/scroll_container';
+import { useSearchParam } from 'mastodon/hooks/useSearchParam';
 import { useAppDispatch, useAppSelector } from 'mastodon/store';
-
-import { useSearchParam } from '../../../hooks/useSearchParam';
 
 import { AccountCard } from './components/account_card';
 
@@ -84,6 +83,9 @@ export const Directory: React.FC<{
     (state) =>
       state.user_lists.getIn(['directory', 'isLoading'], true) as boolean,
   );
+  const hasMore = useAppSelector(
+    (state) => !!state.user_lists.getIn(['directory', 'next']),
+  );
 
   useEffect(() => {
     void dispatch(fetchDirectory({ order, local }));
@@ -131,6 +133,7 @@ export const Directory: React.FC<{
   }, [dispatch, order, local]);
 
   const pinned = !!columnId;
+  const initialLoad = isLoading && accountIds.size === 0;
 
   const scrollableArea = (
     <div className='scrollable'>
@@ -171,7 +174,7 @@ export const Directory: React.FC<{
       </div>
 
       <div className='directory__list'>
-        {isLoading ? (
+        {initialLoad ? (
           <LoadingIndicator />
         ) : (
           accountIds.map((accountId) => (
@@ -180,7 +183,11 @@ export const Directory: React.FC<{
         )}
       </div>
 
-      <LoadMore onClick={handleLoadMore} visible={!isLoading} />
+      <LoadMore
+        onClick={handleLoadMore}
+        visible={!initialLoad && hasMore}
+        loading={isLoading}
+      />
     </div>
   );
 
@@ -202,7 +209,6 @@ export const Directory: React.FC<{
       />
 
       {multiColumn && !pinned ? (
-        // @ts-expect-error ScrollContainer is not properly typed yet
         <ScrollContainer scrollKey='directory'>
           {scrollableArea}
         </ScrollContainer>

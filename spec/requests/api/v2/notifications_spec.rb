@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Notifications' do
+  include_context 'with API authentication', oauth_scopes: 'read:notifications write:notifications'
+
   let(:user)    { Fabricate(:user, account_attributes: { username: 'alice' }) }
-  let(:token)   { Fabricate(:accessible_access_token, resource_owner_id: user.id, scopes: scopes) }
-  let(:scopes)  { 'read:notifications write:notifications' }
-  let(:headers) { { 'Authorization' => "Bearer #{token.token}" } }
 
   describe 'GET /api/v2/notifications/unread_count', :inline_jobs do
     subject do
@@ -158,19 +157,18 @@ RSpec.describe 'Notifications' do
           expect(response).to have_http_status(200)
           expect(response.content_type)
             .to start_with('application/json')
-          expect(response.parsed_body[:notification_groups]).to contain_exactly(
-            a_hash_including(
-              type: 'favourite',
-              sample_account_ids: have_attributes(size: 5),
-              page_min_id: notification_ids.first.to_s,
-              page_max_id: notification_ids.last.to_s
-            )
-          )
+          expect(response.parsed_body[:notification_groups].size)
+            .to eq(1)
+          expect(response.parsed_body.dig(:notification_groups, 0))
+            .to include(type: 'favourite')
+            .and(include(sample_account_ids: have_attributes(size: 5)))
+            .and(include(page_max_id: notification_ids.last.to_s))
+            .and(include(page_min_id: notification_ids.first.to_s))
         end
       end
 
       context 'with min_id param' do
-        let(:params) { { min_id: user.account.notifications.reload.first.id - 1 } }
+        let(:params) { { min_id: user.account.notifications.order(id: :asc).first.id - 1 } }
 
         it 'returns a notification group covering all notifications' do
           subject
@@ -180,14 +178,13 @@ RSpec.describe 'Notifications' do
           expect(response).to have_http_status(200)
           expect(response.content_type)
             .to start_with('application/json')
-          expect(response.parsed_body[:notification_groups]).to contain_exactly(
-            a_hash_including(
-              type: 'favourite',
-              sample_account_ids: have_attributes(size: 5),
-              page_min_id: notification_ids.first.to_s,
-              page_max_id: notification_ids.last.to_s
-            )
-          )
+          expect(response.parsed_body[:notification_groups].size)
+            .to eq(1)
+          expect(response.parsed_body.dig(:notification_groups, 0))
+            .to include(type: 'favourite')
+            .and(include(sample_account_ids: have_attributes(size: 5)))
+            .and(include(page_max_id: notification_ids.last.to_s))
+            .and(include(page_min_id: notification_ids.first.to_s))
         end
       end
     end
@@ -325,7 +322,7 @@ RSpec.describe 'Notifications' do
         expect(response.content_type)
           .to start_with('application/json')
         expect(response.parsed_body[:partial_accounts].size).to be > 0
-        expect(response.parsed_body[:partial_accounts][0].keys.map(&:to_sym)).to contain_exactly(:acct, :avatar, :avatar_static, :bot, :id, :locked, :url)
+        expect(response.parsed_body[:partial_accounts][0].keys.map(&:to_sym)).to contain_exactly(:acct, :avatar, :avatar_static, :avatar_description, :bot, :id, :locked, :url)
         expect(response.parsed_body[:partial_accounts].pluck(:id)).to_not include(recent_account.id.to_s)
         expect(response.parsed_body[:accounts].pluck(:id)).to include(recent_account.id.to_s)
       end

@@ -1,0 +1,24 @@
+// pentimento.me customizations.
+// Keeping all local theming here makes upstream merges conflict-free:
+// we only override token values, never upstream token definitions.
+
+// Brand accent: sage green (#bdc796), replacing Mastodon's indigo ramp.
+@mixin palette-overrides {
+  --color-indigo-50: hsl(72deg 40% 96%);
+  --color-indigo-100: hsl(72deg 38% 91%);
+  --color-indigo-200: hsl(72deg 35% 84%);
+  --color-indigo-300: #bdc796;
+  --color-indigo-400: hsl(72deg 26% 58%);
+  --color-indigo-500: #8e986a;
+  --color-indigo-600: hsl(72deg 22% 42%);
+  --color-indigo-700: hsl(72deg 22% 34%);
+  --color-indigo-800: hsl(72deg 20% 27%);
+  --color-indigo-900: hsl(72deg 20% 20%);
+  --color-indigo-950: hsl(72deg 18% 13%);
+}
+
+// Favourite / bookmark markers used the accent color instead of gold/red.
+@mixin tokens-overrides {
+  --color-text-bookmark-highlight: var(--color-indigo-300);
+  --color-text-favourite-highlight: var(--color-indigo-300);
+}

@@ -3,9 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin::Settings::ContentRetention' do
+  let(:admin_user) { Fabricate(:admin_user) }
+
+  before { sign_in(admin_user) }
+
   it 'Saves changes to content retention settings' do
-    sign_in admin_user
     visit admin_settings_content_retention_path
+    expect(page)
+      .to have_title(I18n.t('admin.settings.content_retention.title'))
 
     fill_in media_cache_retention_period_field,
             with: '2'
@@ -13,7 +18,7 @@ RSpec.describe 'Admin::Settings::ContentRetention' do
     click_on submit_button
 
     expect(page)
-      .to have_content(success_message)
+      .to have_text(success_message)
   end
 
   def media_cache_retention_period_field

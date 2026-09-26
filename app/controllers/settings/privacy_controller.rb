@@ -2,13 +2,14 @@
 
 class Settings::PrivacyController < Settings::BaseController
   before_action :set_account
+  before_action :set_email_subscriptions_count
 
   def show; end
 
   def update
     if UpdateAccountService.new.call(@account, account_params.except(:settings))
       current_user.update!(settings_attributes: account_params[:settings])
-      ActivityPub::UpdateDistributionWorker.perform_async(@account.id)
+      ActivityPub::UpdateDistributionWorker.perform_in(ActivityPub::UpdateDistributionWorker::DEBOUNCE_DELAY, @account.id)
       redirect_to settings_privacy_path, notice: I18n.t('generic.changes_saved_msg')
     else
       render :show
@@ -23,5 +24,9 @@ class Settings::PrivacyController < Settings::BaseController
 
   def set_account
     @account = current_account
+  end
+
+  def set_email_subscriptions_count
+    @email_subscriptions_count = with_read_replica { @account.email_subscriptions.confirmed.count }
   end
 end

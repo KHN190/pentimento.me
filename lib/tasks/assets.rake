@@ -14,7 +14,16 @@ end
 
 if Rake::Task.task_defined?('assets:precompile')
   Rake::Task['assets:precompile'].enhance do
-    Webpacker.manifest.refresh
+    # Vite integration
+    Vite.tasks.precompile
+
     Rake::Task['assets:generate_static_pages'].invoke
+  end
+end
+
+if Rake::Task.task_defined?('assets:clobber')
+  Rake::Task['assets:clobber'].enhance do
+    # Vite integration
+    Vite.tasks.clobber
   end
 end

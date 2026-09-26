@@ -23,6 +23,8 @@ io:
       models:
         account:
           attributes:
+            fields:
+              fields_with_values_missing_labels: enhavas valori kun mankanta etiketi
             username:
               invalid: mustas konsistar nur literi, nombri e sublinei
               reserved: rezervitas
@@ -30,6 +32,12 @@ io:
           attributes:
             url:
               invalid: ne esas valida URL
+        collection:
+          attributes:
+            collection_items:
+              too_many: esas tro multa, ne multa ol %{count} esas permisita
+            tag:
+              unusable: ne povas uzesar
         doorkeeper/application:
           attributes:
             website:
@@ -38,12 +46,23 @@ io:
           attributes:
             data:
               malformed: esas misformaca
+        list_account:
+          attributes:
+            account_id:
+              taken: es ja en la listo
+          must_be_following: mustas esar sequinta konto
         status:
           attributes:
             reblog:
               taken: de postajo ja existas
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: esas tro antea, mustas esar post %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: esas sub la evlimito
             email:
               blocked: uzas nepermisata retpostodomeno
               unreachable: semblas ne existar
