@@ -32,6 +32,12 @@ tr:
           attributes:
             url:
               invalid: geçerli bir URL değil
+        collection:
+          attributes:
+            collection_items:
+              too_many: çok fazla, en fazla %{count} olabilir
+            tag:
+              unusable: kullanılamaz
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ tr:
           attributes:
             reblog:
               taken: durum zaten var
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: çok erken, %{date} tarihinden sonra olmalıdır
         user:
           attributes:
+            date_of_birth:
+              below_limit: yaş sınırının altında
             email:
               blocked: izin verilmeyen bir e-posta sağlayıcı kullanıyor
               unreachable: mevcut gözükmüyor

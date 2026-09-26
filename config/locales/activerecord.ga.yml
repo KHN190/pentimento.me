@@ -32,6 +32,12 @@ ga:
           attributes:
             url:
               invalid: nach URL bailí é
+        collection:
+          attributes:
+            collection_items:
+              too_many: an iomarca, níl cead níos mó ná %{count} a fháil
+            tag:
+              unusable: ní fhéadfar a úsáid
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ ga:
           attributes:
             reblog:
               taken: den phost cheana féin
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: róluath, caithfidh sé bheith níos déanaí ná %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: faoi ​​bhun na teorann aoise
             email:
               blocked: úsáideann soláthraí ríomhphoist dícheadaithe
               unreachable: ní cosúil go bhfuil sé ann

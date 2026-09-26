@@ -32,6 +32,12 @@ nl:
           attributes:
             url:
               invalid: is een ongeldige URL
+        collection:
+          attributes:
+            collection_items:
+              too_many: zijn er te veel, niet meer dan %{count} zijn toegestaan
+            tag:
+              unusable: mag niet worden gebruikt
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ nl:
           attributes:
             reblog:
               taken: van bericht bestaat al
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: is te vroeg, moet na %{date} zijn
         user:
           attributes:
+            date_of_birth:
+              below_limit: is onder de leeftijdsgrens
             email:
               blocked: gebruikt een niet toegestane e-mailprovider
               unreachable: schijnt niet te bestaan

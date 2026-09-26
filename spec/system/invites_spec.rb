@@ -17,7 +17,7 @@ RSpec.describe 'Invites' do
 
       within css_id(invite) do
         expect(page)
-          .to have_content(invite.uses)
+          .to have_text(invite.uses)
           .and have_private_cache_control
         expect(copyable_field.value)
           .to eq(public_invite_url(invite_code: invite.code))
@@ -46,7 +46,7 @@ RSpec.describe 'Invites' do
         .to change { invite.reload.expired? }.to(true)
 
       within css_id(invite) do
-        expect(page).to have_content I18n.t('invites.expired')
+        expect(page).to have_text I18n.t('invites.expired')
       end
     end
   end
@@ -71,9 +71,9 @@ RSpec.describe 'Invites' do
 
   def fill_invite_form
     select I18n.t('invites.max_uses', count: 100),
-           from: I18n.t('simple_form.labels.defaults.max_uses')
+           from: form_label('defaults.max_uses')
     select I18n.t("invites.expires_in.#{30.minutes.to_i}"),
-           from: I18n.t('simple_form.labels.defaults.expires_in')
-    check I18n.t('simple_form.labels.defaults.autofollow')
+           from: form_label('defaults.expires_in')
+    check form_label('defaults.autofollow')
   end
 end

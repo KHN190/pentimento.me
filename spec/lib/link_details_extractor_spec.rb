@@ -118,7 +118,7 @@ RSpec.describe LinkDetailsExtractor do
         </html>
       HTML
 
-      include_examples 'structured data'
+      it_behaves_like 'structured data'
     end
 
     context 'with the first tag is invalid JSON' do
@@ -136,7 +136,7 @@ RSpec.describe LinkDetailsExtractor do
         </html>
       HTML
 
-      include_examples 'structured data'
+      it_behaves_like 'structured data'
     end
 
     context 'with the first tag is null' do
@@ -154,7 +154,7 @@ RSpec.describe LinkDetailsExtractor do
         </html>
       HTML
 
-      include_examples 'structured data'
+      it_behaves_like 'structured data'
     end
 
     context 'with preceding block of unsupported LD+JSON' do
@@ -194,7 +194,7 @@ RSpec.describe LinkDetailsExtractor do
         </html>
       HTML
 
-      include_examples 'structured data'
+      it_behaves_like 'structured data'
     end
 
     context 'with unsupported in same block LD+JSON' do
@@ -218,7 +218,7 @@ RSpec.describe LinkDetailsExtractor do
         </html>
       HTML
 
-      include_examples 'structured data'
+      it_behaves_like 'structured data'
     end
 
     context 'with author names as array' do
@@ -285,6 +285,41 @@ RSpec.describe LinkDetailsExtractor do
 
       it 'gives provider_name' do
         expect(subject.provider_name).to eq 'Pet News'
+      end
+    end
+
+    context 'with headline and description as language tagged strings' do
+      let(:ld_json) do
+        {
+          '@context' => 'https://schema.org',
+          '@type' => 'NewsArticle',
+          'headline' => {
+            '@value' => 'Title in English',
+            '@language' => 'en',
+          },
+          'description' => {
+            '@value' => 'Text in English.',
+            '@language' => 'en',
+          },
+        }.to_json
+      end
+      let(:html) { <<~HTML }
+        <!doctype html>
+        <html>
+        <body>
+          <script type="application/ld+json">
+            #{ld_json}
+          </script>
+        </body>
+        </html>
+      HTML
+
+      it 'gives correct title' do
+        expect(subject.title).to eq 'Title in English'
+      end
+
+      it 'gives correct description' do
+        expect(subject.description).to eq 'Text in English.'
       end
     end
   end

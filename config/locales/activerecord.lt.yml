@@ -6,7 +6,7 @@ lt:
         expires_at: Galutinė data
         options: Pasirinkimai
       user:
-        agreement: Paslaugos sutartis
+        agreement: Paslaugų sąlygos
         email: El. laiško adresas
         locale: Lokali
         password: Slaptažodis
@@ -32,6 +32,12 @@ lt:
           attributes:
             url:
               invalid: nėra tinkamas URL adresas.
+        collection:
+          attributes:
+            collection_items:
+              too_many: yra per daug, leidžiama ne daugiau kaip %{count}
+            tag:
+              unusable: negali būti panaudota
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ lt:
           attributes:
             reblog:
               taken: įrašas jau egzistuoja.
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: yra per anksti, turi būti vėliau nei %{date}.
         user:
           attributes:
+            date_of_birth:
+              below_limit: yra žemiau amžiaus ribos.
             email:
               blocked: naudoja neleidžiamą el. laiško paslaugų teikėją.
               unreachable: neatrodo, kad egzistuoja.

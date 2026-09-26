@@ -32,6 +32,12 @@ ca:
           attributes:
             url:
               invalid: no és un enllaç vàlid
+        collection:
+          attributes:
+            collection_items:
+              too_many: n'hi ha massa. %{count} és el màxim permès
+            tag:
+              unusable: pot no ser emprat
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ ca:
           attributes:
             reblog:
               taken: de la publicació ja existeix
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: és massa aviat, ha de ser després de %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: és inferior a l'edat mínima
             email:
               blocked: utilitza un proveïdor de correu-e no autoritzat
               unreachable: sembla que no existeix

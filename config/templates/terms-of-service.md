@@ -4,7 +4,7 @@ These terms of service (the "Terms") cover your access and use of Server
 Operator's ("Administrator", "we", or "us") instance, located at %{domain} (the
 "Instance"). These Terms apply solely to your use of the Instance as operated
 by the Administrator. Please note that we have no affiliation with Mastodon
-gGmbH (“Mastodon”) and these Terms do not contain any representations or
+GmbH (“Mastodon”) and these Terms do not contain any representations or
 warranties or other promises from Mastodon about your use of the Instance. If
 you would like to contact us for any reason, please direct all questions,
 comments, concerns and notices to us by following the instructions provided in
@@ -17,7 +17,7 @@ into these Terms. You should also read these policies before using the Instance.
 
 ## Age Requirements and Responsibility of Parents and Legal Guardians
 
-By accessing the Instance, you signify that you are at least thirteen years old
+By accessing the Instance, you signify that you are at least %{min_age} years old
 and that you meet the minimum age required by the laws in your country. If you
 are old enough to access the Instance in your country, but are not old enough to
 have the legal authority to consent to our Terms, please ask your parent or

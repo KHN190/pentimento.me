@@ -32,6 +32,12 @@ da:
           attributes:
             url:
               invalid: er ikke en gyldig URL
+        collection:
+          attributes:
+            collection_items:
+              too_many: er for mange, ikke mere end %{count} er tilladt
+            tag:
+              unusable: må ikke anvendes
         doorkeeper/application:
           attributes:
             website:
@@ -48,9 +54,15 @@ da:
         status:
           attributes:
             reblog:
-              taken: af status findes allerede
+              taken: af indlæg findes allerede
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: er for tidligt, skal være efter %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: er under alderskravet
             email:
               blocked: bruger en ikke-tilladt e-mailudbyder
               unreachable: ser ikke ud til at eksistere

@@ -32,6 +32,12 @@ fi:
           attributes:
             url:
               invalid: ei ole kelvollinen verkko-osoite
+        collection:
+          attributes:
+            collection_items:
+              too_many: on liian monta, enintään %{count} sallitaan
+            tag:
+              unusable: ei ole käytettävissä
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ fi:
           attributes:
             reblog:
               taken: tästä julkaisusta on jo tehty
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: on liian pian, täytyy olla myöhemmin kuin %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: alittaa alaikärajan
             email:
               blocked: käyttää kiellettyä sähköpostipalveluntarjoajaa
               unreachable: ei näytä olevan olemassa

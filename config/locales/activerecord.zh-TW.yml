@@ -32,6 +32,12 @@ zh-TW:
           attributes:
             url:
               invalid: 不是有效的 URL
+        collection:
+          attributes:
+            collection_items:
+              too_many: 數量過多，無法多過 %{count} 個
+            tag:
+              unusable: 無法使用
         doorkeeper/application:
           attributes:
             website:
@@ -49,8 +55,14 @@ zh-TW:
           attributes:
             reblog:
               taken: 嘟文已經存在
+        terms_of_service:
+          attributes:
+            effective_date:
+              too_soon: 太快了，必須晚於 %{date}
         user:
           attributes:
+            date_of_birth:
+              below_limit: 低於年齡要求
             email:
               blocked: 使用不被允許的電子郵件提供商
               unreachable: 該電子郵件地址似乎無法使用
